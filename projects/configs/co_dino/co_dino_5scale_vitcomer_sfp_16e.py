@@ -4,6 +4,10 @@ _base_ = [
 
 load_from = ''
 
+class_name = ("none", "cement_slurry", "chipping", "honeycomb", "incomplete_deshuttering",)
+num_classes = len(class_name)
+metainfo = dict(classes=class_name, palette=[(5, 85, 19), (6, 64, 148), (89, 120, 115), (178, 29, 226), (190, 248, 97)])
+
 # model settings
 model = dict(
     backbone=dict(
@@ -156,4 +160,4 @@ runner = dict(type='EpochBasedRunner', max_epochs=16)
 # NOTE: `auto_scale_lr` is for automatically scaling LR,
 # USER SHOULD NOT CHANGE ITS VALUES.
 # base_batch_size = (16 GPUs) x (1 samples per GPU)
-auto_scale_lr = dict(base_batch_size=16)
+auto_scale_lr = dict(base_batch_size=2)
